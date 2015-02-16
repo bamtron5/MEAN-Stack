@@ -1,0 +1,136 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'node' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'node', null ]
+5 verbose cache add name=undefined spec="node" args=["node",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'node',
+6 verbose parsed url   path: 'node',
+6 verbose parsed url   href: 'node' }
+7 silly lockFile f8e966d1-node node
+8 verbose lock node /Users/brandonmorrison/.npm/f8e966d1-node.lock
+9 silly lockFile f8e966d1-node node
+10 silly lockFile f8e966d1-node node
+11 verbose addNamed [ 'node', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile bccd7aa1-node node@
+14 verbose lock node@ /Users/brandonmorrison/.npm/bccd7aa1-node.lock
+15 silly addNameRange { name: 'node', range: '*', hasData: false }
+16 verbose request where is /node
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id ed61250bb5472d75
+19 verbose url raw /node
+20 verbose url resolving [ 'https://registry.npmjs.org/', './node' ]
+21 verbose url resolved https://registry.npmjs.org/node
+22 verbose request where is https://registry.npmjs.org/node
+23 info trying registry request attempt 1 at 07:21:19
+24 http GET https://registry.npmjs.org/node
+25 http 200 https://registry.npmjs.org/node
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Mon, 16 Feb 2015 15:21:19 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"BWJ3173VMWU79FIC4YM65REKP"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '1018',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-lax1433-LAX',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1424100079.529990,VS0,VE41',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'node', range: '*', hasData: true }
+28 silly addNameRange versions [ 'node', [ '0.0.0' ] ]
+29 verbose addNamed [ 'node', '0.0.0' ]
+30 verbose addNamed [ '0.0.0', '0.0.0' ]
+31 silly lockFile c321b6ea-node-0-0-0 node@0.0.0
+32 verbose lock node@0.0.0 /Users/brandonmorrison/.npm/c321b6ea-node-0-0-0.lock
+33 warn deprecated node@0.0.0: To update or install node, go to http://nodejs.org/
+34 silly lockFile 5a02160b-ry-npmjs-org-node-node-0-0-0-tgz https://registry.npmjs.org/node/-/node-0.0.0.tgz
+35 verbose lock https://registry.npmjs.org/node/-/node-0.0.0.tgz /Users/brandonmorrison/.npm/5a02160b-ry-npmjs-org-node-node-0-0-0-tgz.lock
+36 verbose addRemoteTarball [ 'https://registry.npmjs.org/node/-/node-0.0.0.tgz',
+36 verbose addRemoteTarball   '288d62f90530c763eff8d4831ee7343ab3d60793' ]
+37 info retry fetch attempt 1 at 07:21:19
+38 verbose fetch to= /var/folders/7n/v3__3d095bg54t8gp_5vfgg80000gn/T/npm-4286-Xjdyj_LM/registry.npmjs.org/node/-/node-0.0.0.tgz
+39 http GET https://registry.npmjs.org/node/-/node-0.0.0.tgz
+40 http 200 https://registry.npmjs.org/node/-/node-0.0.0.tgz
+41 silly lockFile 5a02160b-ry-npmjs-org-node-node-0-0-0-tgz https://registry.npmjs.org/node/-/node-0.0.0.tgz
+42 silly lockFile 5a02160b-ry-npmjs-org-node-node-0-0-0-tgz https://registry.npmjs.org/node/-/node-0.0.0.tgz
+43 silly lockFile c321b6ea-node-0-0-0 node@0.0.0
+44 silly lockFile c321b6ea-node-0-0-0 node@0.0.0
+45 silly lockFile bccd7aa1-node node@
+46 silly lockFile bccd7aa1-node node@
+47 silly resolved [ { name: 'node',
+47 silly resolved     version: '0.0.0',
+47 silly resolved     _npmUser: { name: 'isaacs', email: 'i@izs.me' },
+47 silly resolved     _id: 'node@0.0.0',
+47 silly resolved     dependencies: {},
+47 silly resolved     devDependencies: {},
+47 silly resolved     optionalDependencies: {},
+47 silly resolved     engines: { node: '*' },
+47 silly resolved     _engineSupported: true,
+47 silly resolved     _npmVersion: '1.1.21',
+47 silly resolved     _nodeVersion: 'v0.7.9-pre',
+47 silly resolved     _defaultsLoaded: true,
+47 silly resolved     dist:
+47 silly resolved      { shasum: '288d62f90530c763eff8d4831ee7343ab3d60793',
+47 silly resolved        tarball: 'http://registry.npmjs.org/node/-/node-0.0.0.tgz' },
+47 silly resolved     readme: '',
+47 silly resolved     maintainers: [ [Object] ],
+47 silly resolved     directories: {},
+47 silly resolved     deprecated: 'To update or install node, go to http://nodejs.org/',
+47 silly resolved     homepage: 'http://nodejs.org/api',
+47 silly resolved     _shasum: '288d62f90530c763eff8d4831ee7343ab3d60793',
+47 silly resolved     _from: 'node@',
+47 silly resolved     _resolved: 'https://registry.npmjs.org/node/-/node-0.0.0.tgz' } ]
+48 info install node@0.0.0 into /usr/local/lib
+49 info installOne node@0.0.0
+50 verbose lib/node_modules/node unbuild
+51 verbose tar unpack /Users/brandonmorrison/.npm/node/0.0.0/package.tgz
+52 silly lockFile 8630672c--usr-local-lib-node-modules-node tar:///usr/local/lib/node_modules/node
+53 verbose lock tar:///usr/local/lib/node_modules/node /Users/brandonmorrison/.npm/8630672c--usr-local-lib-node-modules-node.lock
+54 silly lockFile 39b7d31b-rison-npm-node-0-0-0-package-tgz tar:///Users/brandonmorrison/.npm/node/0.0.0/package.tgz
+55 verbose lock tar:///Users/brandonmorrison/.npm/node/0.0.0/package.tgz /Users/brandonmorrison/.npm/39b7d31b-rison-npm-node-0-0-0-package-tgz.lock
+56 silly gunzTarPerm modes [ '755', '644' ]
+57 error Error: EACCES, mkdir '/usr/local/lib/node_modules/node'
+57 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/node']
+57 error   errno: 3,
+57 error   code: 'EACCES',
+57 error   path: '/usr/local/lib/node_modules/node',
+57 error   fstream_type: 'Directory',
+57 error   fstream_path: '/usr/local/lib/node_modules/node',
+57 error   fstream_class: 'DirWriter',
+57 error   fstream_stack:
+57 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+57 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+57 error      'Object.oncomplete (fs.js:107:15)' ] }
+58 error Please try running this command again as root/Administrator.
+59 error System Darwin 14.0.0
+60 error command "node" "/usr/local/bin/npm" "install" "-g" "node"
+61 error cwd /Users/brandonmorrison/Sites/sandbox/mean/server
+62 error node -v v0.10.33
+63 error npm -v 1.4.28
+64 error path /usr/local/lib/node_modules/node
+65 error fstream_path /usr/local/lib/node_modules/node
+66 error fstream_type Directory
+67 error fstream_class DirWriter
+68 error code EACCES
+69 error errno 3
+70 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/node'
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+71 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+71 error fstream_stack Object.oncomplete (fs.js:107:15)
+72 verbose exit [ 3, true ]
