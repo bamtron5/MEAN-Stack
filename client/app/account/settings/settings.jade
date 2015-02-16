@@ -8,6 +8,16 @@ div(ng-include='"components/navbar/navbar.html"')
       div.edit-avatar-modal(ng-hide)
       h1 Change Password
     .col-sm-12
+      div(ng-show='uploader.isHTML5')
+    
+      .well.my-drop-zone(nv-file-over='', uploader='uploader')
+        | Base drop zone
+      
+      div(nv-file-drop='', uploader='uploader', options="{ url: '/foo' }")
+        .well.my-drop-zone(nv-file-over='', uploader='uploader', over-class='another-file-over-class')
+          | Another drop zone with its own settings
+
+
       form.form(name='form', ng-submit='changePassword(form)', novalidate='')
         .form-group
           label Current Password
