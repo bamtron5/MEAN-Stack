@@ -1,1 +1,1 @@
-A CMS sandbox of mine running Express models, Node Server, MongoDB,  Angular/Jade/Less Front-End.  On my local machine.  Grunt deployment, Yeoman scaffolding, Bower components.
+A CMS sandbox of mine running Express models, Node Server, MongoDB,  Angular/Jade/Less Front-End. Managed with Grunt deployment, Yeoman scaffolding, and Bower components.  My new favorite setup!

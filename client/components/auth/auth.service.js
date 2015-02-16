@@ -3,6 +3,7 @@
 angular.module('appApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
     var currentUser = {};
+
     if($cookieStore.get('token')) {
       currentUser = User.get();
     }
@@ -38,6 +39,13 @@ angular.module('appApp')
 
         return deferred.promise;
       },
+
+      /**
+       * Get Avatar
+       *
+       * 
+       */
+
 
       /**
        * Delete access token and user info

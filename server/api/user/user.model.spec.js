@@ -8,7 +8,8 @@ var user = new User({
   provider: 'local',
   name: 'Fake User',
   email: 'test@test.com',
-  password: 'password'
+  password: 'password',
+  avatar: '/assets/images/yeoman.png'
 });
 
 describe('User Model', function() {

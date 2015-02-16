@@ -12,6 +12,13 @@ angular.module('appApp')
           controller:'password'
         }
       },
+      //gravitar later... service/controller/model/front end/seed a default/directive
+      changeAvatar: {
+        method: 'PUT',
+        params: {
+          controller:'avatar'
+        }
+      },
       get: {
         method: 'GET',
         params: {

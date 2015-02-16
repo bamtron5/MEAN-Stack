@@ -686,6 +686,8 @@ module.exports = function (grunt) {
     'rev',
     'usemin'
   ]);
+  //should this be conditioned??? TODO
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', [
     'newer:jshint',

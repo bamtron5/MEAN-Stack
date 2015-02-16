@@ -11,6 +11,10 @@ var UserSchema = new Schema({
     type: String,
     default: 'user'
   },
+  avatar: {
+    type: String,
+    default: '/assets/images/yeoman.png'
+  },
   hashedPassword: String,
   provider: String,
   salt: String
@@ -36,7 +40,8 @@ UserSchema
   .get(function() {
     return {
       'name': this.name,
-      'role': this.role
+      'role': this.role,
+      'avatar': this.avatar
     };
   });
 

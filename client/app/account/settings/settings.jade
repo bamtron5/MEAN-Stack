@@ -2,6 +2,10 @@ div(ng-include='"components/navbar/navbar.html"')
 .container
   .row
     .col-sm-12
+      h1 Change Avatar
+      label Edit Avatar
+      div.edit-avatar
+      div.edit-avatar-modal(ng-hide)
       h1 Change Password
     .col-sm-12
       form.form(name='form', ng-submit='changePassword(form)', novalidate='')
