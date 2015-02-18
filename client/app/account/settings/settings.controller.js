@@ -18,4 +18,11 @@ angular.module('appApp')
         });
       }
 		};
+
+    $scope.changeAvatar = function(form){
+      //check for jpg/png/jpeg
+      console.log('ok');
+      console.log($scope.user);
+      Auth.changeAvatar($scope.user.newAvatar);
+    };
   });

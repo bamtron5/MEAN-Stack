@@ -12,11 +12,13 @@ angular.module('appApp')
           controller:'password'
         }
       },
-      //gravitar later... service/controller/model/front end/seed a default/directive
+      //service/controller/model/front end/seed a default/directive/aws service.
+      //upload to aws, save sting with api/form
       changeAvatar: {
         method: 'PUT',
         params: {
-          controller:'avatar'
+          controller:'avatar',
+          id: '@newAvatar'
         }
       },
       get: {
@@ -25,5 +27,5 @@ angular.module('appApp')
           id:'me'
         }
       }
-	  });
+	  })
   });

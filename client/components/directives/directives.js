@@ -2,8 +2,10 @@
 
 angular.module('appApp')
 	.controller('EditAvatarController', function ($scope, Auth) {
+	  var user = Auth.getCurrentUser();
 	  $scope.user = {
-	    avatar: Auth.getCurrentUser().avatar
+	    avatar: user.avatar,
+	    newAvatar: ''
 	  };
 	})
 
@@ -12,16 +14,23 @@ angular.module('appApp')
   		return {
   			controller: 'EditAvatarController',
   			restrict: 'C',
-  			trasclude: true,
-  			template: '<img src="{{user.avatar}}" data-toggle="modal" data-target="#edit-avatar-modal">'
+  			template: '<img ng-src="{{user.avatar}}" ng-cloak><button class="btn btn-primary" data-toggle="modal" data-target="#edit-avatar-modal">Edit Avatar</button>'
 		};
 	})
 
 	.directive('editAvatarModal', function(){
 		return {
-			controller: 'EditAvatarController',
 			restrict: 'C',
-			trasclude: true,
-			template: '<div class="modal fade" id="edit-avatar-modal" role="dialog" aria-hidden="true"><img src="{{user.avatar}}"><button class="close btn btn-primary" data-dismiss="modal">x</button></div>'
+			controller: 'EditAvatarController',
+	        link: function (scope, element, attributes) {
+	            element.bind("change", function (changeEvent) {
+	                scope.$apply(function () {
+	                    scope.user.newAvatar = "uploads/" + changeEvent.target.files[0].name;
+	                    // or all selected files:
+	                    // scope.fileread = changeEvent.target.files;
+	                });
+	            });
+	        },
+			template: '<div class="modal fade" id="edit-avatar-modal" role="dialog" aria-hidden="true"><img ng-src="{{user.avatar}}"><form id="uploadForm" ng-submit="changeAvatar(form)" enctype="multipart/form-data" action="/api/photo" method="post" name="form" no-validate><input type="file" ng-model="user.newAvatar" name="newAvatar"><button type="submit" value="Upload Image" name="submit" class="btn btn-lg btn-primary">Save changes</button></form><button class="close btn btn-primary" data-dismiss="modal">x</button></div>'
 		}
 	});

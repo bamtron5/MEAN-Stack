@@ -40,11 +40,8 @@ angular.module('appApp')
         return deferred.promise;
       },
 
-      /**
-       * Get Avatar
-       *
-       * 
-       */
+      
+
 
 
       /**
@@ -99,6 +96,25 @@ angular.module('appApp')
           return cb(err);
         }).$promise;
       },
+
+      /**
+       * Change Avatar
+       *
+       * 
+       */
+       changeAvatar: function(newAvatar, callback){
+          var cb = callback || angular.noop;
+          return User.changeAvatar({ id: currentUser._id}, {
+            newAvatar: newAvatar
+          },
+          function(user){
+            return cb(user);
+          },
+          function(err){
+            return cb(err);
+          }
+          ).$promise;
+       },
 
       /**
        * Gets all available info on authenticated user
