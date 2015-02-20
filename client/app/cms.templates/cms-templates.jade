@@ -20,8 +20,8 @@ header#banner.hero-unit
   .row
     .col-lg-12(ng-show='cms != null')
       h1.page-header Templates:
-      ul.list-group(ng-repeat='item in cms')
-        li.list-group-item
+      ul.list-group
+        li.list-group-item(ng-repeat='item in cms')
           a(ng-href='/cms/templates#{{item._id}}') {{item.title}}
     .col-lg-12(ng-show='template != null')
       h1.page-header {{template.title}}

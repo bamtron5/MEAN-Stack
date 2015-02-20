@@ -28,15 +28,16 @@ angular.module('appApp', [
         return config;
       },
 
-      // Intercept 401s and redirect you to login
+      // Intercept 401s/500s and redirect you to login
       responseError: function(response) {
         if(response.status === 401) {
           $location.path('/login');
           // remove any stale tokens
           $cookieStore.remove('token');
           return $q.reject(response);
-        }
-        else {
+        } else if(response.status === 500){
+          $location.path('/');
+        } else {
           return $q.reject(response);
         }
       }
