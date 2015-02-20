@@ -8,6 +8,7 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Cms = require('../api/cms/cms.model');
+var CmsTemplates = require('../api/cms.templates/cms.templates.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -34,6 +35,14 @@ Thing.find({}).remove(function() {
 Cms.find({}).remove(function() {
   Cms.create({
     title: 'Templates',
+    link: '/cms/templates',
+    access: 'admin'
+  });
+});
+
+CmsTemplates.find({}).remove(function() {
+  CmsTemplates.create({
+    title: 'Template 1',
     link: '/cms/templates',
     access: 'admin'
   });

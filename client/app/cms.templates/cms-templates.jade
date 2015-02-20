@@ -3,13 +3,26 @@ div(ng-include='"components/navbar/navbar.html"')
 header#banner.hero-unit
   .container
     h1 Hola CMS Templates!!
-    //- p.lead Kick-start your next web app with Angular Fullstack
-    //- img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
+    //build a form for submission to /api/cms.templates
+      //options:
+        //pubilish to nav?  where?
+        //url
+        //publish later  ... maybe
+        //grid
+        //add text with some kind of side bar ui
+        //add imagery
+        //title
+        //show title option
+      //list all available templates for with crud options
+
 
 .container
   .row
     .col-lg-12
       h1.page-header Templates:
+      ul.list-group(ng-repeat='item in cms')
+        li.list-group-item
+          a(ng-href='{{item.link}}') {{item.title}}
     
 
 footer.footer
