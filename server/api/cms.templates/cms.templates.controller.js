@@ -1,10 +1,10 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /CmsTemplates              ->  index
- * POST    /CmsTemplates              ->  create
- * GET     /CmsTemplates/:id          ->  show
- * PUT     /CmsTemplates/:id          ->  update
- * DELETE  /CmsTemplates/:id          ->  destroy
+ * GET     /api/cms.templates             ->  index
+ * POST    /api/cms.templates              ->  create
+ * GET     /api/cms.templates/:id          ->  show
+ * PUT     /api/cms.templates/:id          ->  update
+ * DELETE  /api/cms.templates/:id          ->  destroy
  */
  //this is to define new services in the CmsTemplates
  //and who has access to them
@@ -25,6 +25,7 @@ exports.index = function(req, res) {
 
 // Get a single CmsTemplates
 exports.show = function(req, res) {
+  console.log(req.params);
   CmsTemplates.findById(req.params.id, function (err, CmsTemplates) {
     if(err) { return handleError(res, err); }
     if(!CmsTemplates) { return res.send(404); }

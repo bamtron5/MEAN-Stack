@@ -35,16 +35,29 @@ Thing.find({}).remove(function() {
 Cms.find({}).remove(function() {
   Cms.create({
     title: 'Templates',
-    link: '/cms/templates',
-    access: 'admin'
+    link: '/cms/templates'
   });
 });
 
 CmsTemplates.find({}).remove(function() {
   CmsTemplates.create({
-    title: 'Template 1',
-    link: '/cms/templates',
-    access: 'admin'
+    title: 'Hero Template',
+    link: '...'
+  }, {
+    title: 'Carousel Template',
+    link: '...'
+  }, {
+    title: 'Bio Template',
+    link: '...'
+  }, {
+    title: 'Hot Spot Template',
+    link: '...'
+  }, {
+    title: 'Collections Template',
+    link: '...'
+  }, {
+    title: 'Social Template',
+    link: '...'
   });
 });
 

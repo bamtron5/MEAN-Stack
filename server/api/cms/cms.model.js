@@ -5,8 +5,7 @@ var mongoose = require('mongoose'),
 
 var CmsSchema = new Schema({
   title: String,
-  link: String,
-  access: String
+  link: String
 });
 
 module.exports = mongoose.model('Cms', CmsSchema);
