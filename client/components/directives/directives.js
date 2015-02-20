@@ -32,6 +32,6 @@ angular.module('appApp')
 	            });
 	        },
 			//templateUrl: 'edit-avatar.html'
-			template: '<div class="modal fade" id="edit-avatar-modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><h2>Edit Avatar</h2><form id="uploadForm" ng-submit="changeAvatar(form)" enctype="multipart/form-data" action="/api/photo" method="post" name="form" no-validate><input type="file" ng-model="user.newAvatar" name="newAvatar"><button type="submit" value="Upload Image" name="submit" class="btn btn-lg btn-primary">Save changes</button></form><button class="close btn btn-primary" data-dismiss="modal">x</button><div></div>'
+			template: '<div class="modal fade" id="edit-avatar-modal" role="dialog" aria-hidden="true"><div class="modal-dialog"><button class="close btn btn-primary" data-dismiss="modal">CLOSE</button><h2>Edit Avatar</h2><form id="uploadForm" ng-submit="changeAvatar(form)" enctype="multipart/form-data" action="/api/photo" method="post" name="form" no-validate><input type="file" ng-model="user.newAvatar" name="newAvatar"><button type="submit" value="Upload Image" name="submit" class="btn btn-lg btn-primary">Save changes</button></form><div></div>'
 		}
 	});

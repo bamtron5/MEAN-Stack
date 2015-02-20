@@ -12,6 +12,7 @@ module.exports = function(app) {
   app.use('/api/things', require('./api/thing'));
   app.use('/api/users', require('./api/user'));
   app.use('/api/cms', require('./api/cms'));
+  app.use('/api/cms.templates', require('./api/cms.templates'));
 
 
   app.use('/auth', require('./auth'));
