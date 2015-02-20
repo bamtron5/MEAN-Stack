@@ -1,11 +1,16 @@
 'use strict';
 
 angular.module('appApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $http, socket) {
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
     }];
+
+    $http.get('/api/cms').success(function(cms) {
+      $scope.cms = cms;
+      socket.syncUpdates('cms', $scope.cms);
+    });
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;

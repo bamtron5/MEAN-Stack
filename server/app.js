@@ -30,6 +30,9 @@ require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./routes')(app);
 
+
+//use the multer module to upload with these methods
+//from /api/photo url
 app.use(multer({ dest: './client/uploads/',
 	rename: function (fieldname, filename) {
 		return filename;
@@ -43,9 +46,6 @@ app.use(multer({ dest: './client/uploads/',
 	}
 }));
 
-// app.get('/',function(req,res){
-// 	res.sendfile("index.html");
-// });
 
 app.post('/api/photo',function(req,res){
 

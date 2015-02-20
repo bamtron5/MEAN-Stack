@@ -24,5 +24,6 @@ angular.module('appApp')
       console.log('ok');
       console.log($scope.user);
       Auth.changeAvatar($scope.user.newAvatar);
+      $scope.loadData();
     };
   });

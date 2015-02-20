@@ -7,6 +7,7 @@
 
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
+var Cms = require('../api/cms/cms.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -27,6 +28,14 @@ Thing.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+  });
+});
+
+Cms.find({}).remove(function() {
+  Cms.create({
+    title: 'Templates',
+    link: '/cms/templates',
+    access: 'admin'
   });
 });
 

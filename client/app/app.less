@@ -1,5 +1,6 @@
 @import 'bootstrap/less/bootstrap.less';
 @import 'font-awesome/less/font-awesome.less';
+@import 'config.less';
 
 @icon-font-path: '/bower_components/bootstrap/fonts/';
 @fa-font-path: '/bower_components/font-awesome/fonts';
@@ -15,8 +16,51 @@
     padding: 0.2em 0;
 }
 
+/* globals */
+ul{
+    -webkit-padding-start: 0;
+}
+
+a{
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+li{
+	list-style: none;
+}
+
+.nav{
+	> li{
+		position: inherit;
+		> ul{
+			display:none;
+			position: absolute;
+			top:50px;
+			left:0;
+			padding:10px;
+			width:100%;
+			background: @client-bgcolor-1;
+			border-top: 1px solid @client-bordercolor-1;
+			border-bottom: 1px solid @client-bordercolor-1;
+			> li{
+				display:inline-block;
+				padding:6px;
+			}
+		}
+		&:hover{
+			ul{
+				display:block;
+			}
+		}
+	}
+}
+/* end-globals */
+
 // injector
 @import 'account/login/login.less';
 @import 'admin/admin.less';
+@import 'config.less';
 @import 'main/main.less';
 // endinjector

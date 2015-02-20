@@ -12,8 +12,9 @@ angular.module('appApp')
           controller:'password'
         }
       },
-      //service/controller/model/front end/seed a default/directive/aws service.
-      //upload to aws, save sting with api/form
+      //service √ / controller √ /model √ / front end √ /seed a default √ / directive √  
+      // aws service / 
+      //don't let file overwrite eachother... either timestamp or directory solution
       changeAvatar: {
         method: 'PUT',
         params: {
