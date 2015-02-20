@@ -13,7 +13,7 @@ var UserSchema = new Schema({
   },
   avatar: {
     type: String,
-    default: '/assets/images/yeoman.png'
+    default: '/assets/images/avatar.png'
   },
   hashedPassword: String,
   provider: String,

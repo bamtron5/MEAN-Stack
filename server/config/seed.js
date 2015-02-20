@@ -45,7 +45,7 @@ User.find({}).remove(function() {
     name: 'Test User',
     email: 'test@test.com',
     password: 'test',
-    avatar: '/assets/images/yeoman.png'
+    avatar: '/assets/images/avatar.png'
   }, {
     provider: 'local',
     role: 'admin',
