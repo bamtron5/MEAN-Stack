@@ -20,6 +20,9 @@ header#banner.hero-unit
         //wysiwig extended
       //gridster adjustments in sizing
       //definitive global margins and/or padding
+      //gripster...
+        //interprets json from gridster to view with calculated percentages
+      //parameter for edit window to stay open  ?edit=true
 
 
 .container
@@ -32,7 +35,7 @@ header#banner.hero-unit
     .col-lg-12(ng-show='template != null')
       h1.page-header {{template.title}}
       a.btn.btn-primary.floater(href='/cms/templates') Back to Templates
-      button.btn.btn-info(data-toggle="modal" data-target="#edit-grid") Edit Grid
+      button.btn.btn-info.edit(ng-click="openEditor()") Edit Grid
       .modal#edit-grid(role="dialog")
         .modal-dialog
           button.fa.close(data-dismiss="modal") CLOSE

@@ -7,5 +7,6 @@ angular.module('appApp')
       .when('/cms/templates', {
         templateUrl: 'app/cms.templates/cms-templates.html',
         controller: 'CmsTemplatesCtrl'
+        //reloadOnSearch: false
       });
   });
