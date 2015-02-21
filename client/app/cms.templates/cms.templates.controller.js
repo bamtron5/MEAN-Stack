@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('appApp', ['ui.bootstrap'])
+angular.module('appApp')
   .controller('CmsTemplatesCtrl', function ($scope, $http, socket, $routeParams, $location) {
 	  	//gridster ctrl
 	  	$scope.maxcol = 15;
