@@ -114,6 +114,43 @@ li{
 	}
 }
 
+.modal{
+	background-color:rgba(51, 51, 51, .9);
+}
+
+.toolbar{
+	padding:5px 0;
+	border-bottom:1px solid white;
+	> *{
+		margin-right:12px;
+	}
+}
+
+.close{
+	color:white;
+	opacity:1;
+	font-size:18px;
+	padding:3px;
+	&:hover{
+		color:white;
+	}
+	&:before{
+		content: '\f057';
+		margin-right:10px;
+	}
+}
+
+.modal-dialog{
+	width:100%;
+	padding:20px;
+
+	label{
+		margin-top:5px;
+		color:white;
+		display:block;
+	}
+}
+
 #edit-avatar-modal{
 	.btn{
 		margin-top:10px;
@@ -128,4 +165,5 @@ li{
 @import 'admin/admin.less';
 @import 'config.less';
 @import 'main/main.less';
+@import 'gridster/client-gridster.less';
 // endinjector
