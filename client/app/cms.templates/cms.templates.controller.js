@@ -28,6 +28,7 @@ angular.module('appApp')
 			top: 10,
 			left:10
 		}
+		$scope.widgetCount = 0;
 
 		//bootstrap modal for editing templates
 		$scope.edit = false;
@@ -65,6 +66,7 @@ angular.module('appApp')
 						resize:{
 							enabled: true
 						},
+						avoid_overlapped_widgets: true,
 						autogrow_cols: true,
 				        widget_margins: [scope.margins.top, scope.margins.left],
 				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
@@ -75,9 +77,11 @@ angular.module('appApp')
 						alert("Please add an element first.");
 						return false;
 					}
+
 					gridster.options.widget_base_dimensions = [scope.baseDimensions.width, scope.baseDimensions.height];
 					gridster.options.widget_margins = [scope.margins.top, scope.margins.left];
-					gridster.init();
+					gridster.destroy();
+					gridster.init().data('gridster');
 					
 					//data for db
 				    var gData = jQuery(".gridster ul").gridster().data('gridster');
@@ -85,7 +89,8 @@ angular.module('appApp')
 				}
 
 				scope.createElement = function(){
-					gridster.add_widget.apply(gridster, ["<li></li>", scope.sizex, scope.sizey])
+					scope.widgetCount++;
+					gridster.add_widget.apply(gridster, ["<li><span class='widget_id'>" + scope.widgetCount + "</span></li>", scope.sizex, scope.sizey])
 				}
 	        },
 	        templateUrl: '/app/cms.templates/cms-templates-grid-template.html'
