@@ -13,10 +13,13 @@ angular.module('appApp')
 				return true;
 			}
 		}
+
+
+		$scope.elementCount = 0;
 		$scope.gridContent = "";
 		$scope.count = 0;
-		$scope.sizex = 0;
-		$scope.sizey = 0;
+		$scope.sizex = 1;
+		$scope.sizey = 1;
 		$scope.baseDimensions = {
 			width: 140,
 			height: 140
@@ -56,25 +59,34 @@ angular.module('appApp')
 	.directive('editGrid', function(){
 		return {
 			restrict: 'C',
-			///controller: 'CmsTemplatesCtrl',
 	        link: function (scope, element, attributes) {
-	            scope.createRow = function(){
-					console.log(element);
-					element.find(".gridster ul").remove();
-					element.find(".gridster").append("<ul></ul>");
-					element.find('ul').append('<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li><li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li><li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li><li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>');
-					$(".gridster ul").gridster({
+				var gridster = 
+					jQuery(".gridster ul").gridster({
 						resize:{
 							enabled: true
 						},
-						max_cols: scope.maxcol,
+						autogrow_cols: true,
 				        widget_margins: [scope.margins.top, scope.margins.left],
 				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
-				    });
-				    var gridster = $(".gridster ul").gridster().data('gridster');
- 					var b = gridster.serialize();
- 					console.log(b);
-				} 
+				    }).data('gridster');
+
+	            scope.updateGrid = function(){
+					if(element.find("li").length === 0){
+						alert("Please add an element first.");
+						return false;
+					}
+					gridster.options.widget_base_dimensions = [scope.baseDimensions.width, scope.baseDimensions.height];
+					gridster.options.widget_margins = [scope.margins.top, scope.margins.left];
+					gridster.init();
+					
+					//data for db
+				    var gData = jQuery(".gridster ul").gridster().data('gridster');
+ 					var gDataSerialized = gridster.serialize();
+				}
+
+				scope.createElement = function(){
+					gridster.add_widget.apply(gridster, ["<li></li>", scope.sizex, scope.sizey])
+				}
 	        },
 	        templateUrl: '/app/cms.templates/cms-templates-grid-template.html'
 		}	
