@@ -18,11 +18,10 @@ header#banner.hero-unit
         //css attributes extended as methods
         //less fonts / colors / and custom rgb selector extended
         //wysiwig extended
-      //gridster adjustments in sizing
+      //gridster adjustments in sizing from cms
       //definitive global margins and/or padding
       //gripster...
         //interprets json from gridster to view with calculated percentages
-      //parameter for edit window to stay open  ?edit=true
 
 
 .container
@@ -36,7 +35,7 @@ header#banner.hero-unit
       h1.page-header {{template.title}}
       a.btn.btn-primary.floater(href='/cms/templates') Back to Templates
       button.btn.btn-info.edit(ng-click="openEditor()") Edit Grid
-      .modal#edit-grid(role="dialog")
+      .modal.edit-modal#edit-grid(role="dialog")
         .modal-dialog
           button.fa.close(data-dismiss="modal") CLOSE
           .edit-grid

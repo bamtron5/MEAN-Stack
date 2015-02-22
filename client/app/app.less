@@ -116,21 +116,49 @@ li{
 
 .modal{
 	background-color:rgba(51, 51, 51, .9);
+
 }
 
 .toolbar{
 	padding:5px 0;
 	border-bottom:1px solid white;
+	background:black;	
+	padding:15px;
 	> *{
 		margin-right:12px;
+		color:white;
+	}
+
+	.btn-info{
+		margin-top:15px;
+	}
+
+	input{
+		color: black;
+	}
+
+	label{
+		min-height:40px;	
+	}
+
+	*[class^="col-"]{
+		overflow:hidden;
+	}
+
+	select{
+		width:100%;
 	}
 }
 
-.close{
+button.close, .close{
 	color:white;
 	opacity:1;
 	font-size:18px;
-	padding:3px;
+	padding:0 1px;
+	float:none;
+	position: absolute;
+	top:-5px;
+	right:20px;
 	&:hover{
 		color:white;
 	}

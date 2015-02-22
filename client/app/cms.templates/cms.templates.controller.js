@@ -2,33 +2,32 @@
 
 angular.module('appApp')
   .controller('CmsTemplatesCtrl', function ($scope, $http, socket, $routeParams, $location) {
-	  	//gridster ctrl
+	  	//gridster config
 	  	$scope.maxcol = 15;
-		$scope.row = 0; 
 		$scope.getNumber = function(num){
 			return new Array(num);
 		}
+		$scope.gridContent = "";
+		$scope.count = 0;
+		$scope.sizex = 0;
+		$scope.sizey = 0;
+		$scope.baseDimensions = {
+			width: 100,
+			height: 55
+		}
+		$scope.margins = {
+			top: 5,
+			left:5
+		}
+		
 
+		//console.log($scope.baseDimensions);
 
-		//bootstrap modal and location edit search params
+		//bootstrap modal for editing templates
 		$scope.edit = false;
-	  	$scope.isEditOpen = function(){
-	  		if(!$location.search('edit') || $location.search('edit') != 'open'){ 
-	  			$scope.edit = false;
-	  		} else { 
-				$scope.edit = true;
-			}
-		};
-
-	  	if($scope.edit){
-	  		$location.search('edit','open');
-	  		$('#edit-grid').modal('show');
-	  	}
-
 		$scope.openEditor = function(){
 			$scope.edit = true;
-			$location.search('edit','open');
-			//$('#edit-grid').modal('show');
+			$('#edit-grid').modal('show');
 		}
 
 
@@ -54,7 +53,7 @@ angular.module('appApp')
 	.directive('editGrid', function(){
 		return {
 			restrict: 'C',
-			controller: 'CmsTemplatesCtrl',
+			///controller: 'CmsTemplatesCtrl',
 	        link: function (scope, element, attributes) {
 	            scope.createRow = function(){
 					//console.log(element);
@@ -68,7 +67,7 @@ angular.module('appApp')
  					console.log(b);
 				} 
 	        },
-			template: '<div class="toolbar"><button class="btn btn-info" ng-click="createRow()">Add Row</button><label>Column Amount</label><select><option ng-repeat="item in getNumber(maxcol) track by $index" value="{{$index+1}}">{{$index+1}}</option></select></div><div class="gridster"><ul></ul></div>'
+	        templateUrl: '/app/cms.templates/cms-templates-grid-template.html'
 		}	
   });
 

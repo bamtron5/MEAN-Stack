@@ -1,0 +1,35 @@
+.toolbar
+	h3.pull-left Configure Grid
+	button.btn.btn-info.pull-left(ng-click='createRow()') Add Grid
+	.clearfix
+	.row
+		.col-sm-2
+			label Max Columns
+			select
+				option(ng-repeat='item in getNumber(maxcol) track by $index', value='{{$index+1}}') {{$index+1}}
+		.col-sm-2
+			label Cell Width
+			input(type="text", ng-model="baseDimensions.width", name="Base Dimensions Width", value="{{baseDimensions.width}}")
+		.col-sm-2
+			label Cell Height
+			input(type="text", ng-model="baseDimensions.height", name="Base Dimensions Height", value="{{baseDimensions.height}}")
+		.col-sm-2
+			label T/B Margin
+			input(type="text", ng-model="margins.top", name="Top and Bottom", value="{{margins.top}}")
+		.col-sm-2
+			label L/R Margin
+			input(type="text", ng-model="margins.left", name="Left and Right", value="{{margins.left}}")
+	br
+	h3.pull-left Configure Element
+	button.btn.btn-info.pull-left Add Element
+	.clearfix
+	.row
+		.col-sm-2
+			label Row Grid Span
+			input(type="text", ng-model="sizex" name="Grid Element Row Span", value="{{sizex}}")
+		.col-sm-2
+			label Col Grid Span
+			input(type="text", ng-model"sizey", name="Grid Element Col Span", value="{{sizey}}")
+		
+.gridster
+	ul
