@@ -3,7 +3,8 @@
 angular.module('appApp')
   .controller('CmsTemplatesCtrl', function ($scope, $http, socket, $routeParams, $location) {
 	  	//gridster config
-	  	$scope.maxcol = 15;
+	  	$scope.maxcol = 12;
+	  	$scope.potentialMaxCol = 12;
 		$scope.getNumber = function(num){
 			return new Array(num);
 		}
@@ -63,6 +64,10 @@ angular.module('appApp')
 					element.find(".gridster").append("<ul></ul>");
 					element.find('ul').append('<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li><li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li><li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li><li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>');
 					$(".gridster ul").gridster({
+						resize:{
+							enabled: true
+						},
+						max_cols: scope.maxcol,
 				        widget_margins: [scope.margins.top, scope.margins.left],
 				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
 				    });
