@@ -6,7 +6,8 @@
 		.col-sm-2
 			label Max Columns
 			select
-				option(ng-repeat='item in getNumber(maxcol) track by $index', value='{{$index+1}}') {{$index+1}}
+				option(ng-repeat='item in getNumber(maxcol) track by $index', value='{{$index+1}}', ng-if='!isMaxCol($index+1)') {{$index+1}}
+				option(ng-repeat='item in getNumber(maxcol) track by $index', value='{{$index+1}}', ng-if='isMaxCol($index+1)', selected="selected") {{$index+1}}
 		.col-sm-2
 			label Cell Width
 			input(type="text", ng-model="baseDimensions.width", name="Base Dimensions Width", value="{{baseDimensions.width}}")

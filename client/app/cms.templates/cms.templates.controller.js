@@ -7,21 +7,23 @@ angular.module('appApp')
 		$scope.getNumber = function(num){
 			return new Array(num);
 		}
+		$scope.isMaxCol = function(num){
+			if(num === $scope.maxcol){
+				return true;
+			}
+		}
 		$scope.gridContent = "";
 		$scope.count = 0;
 		$scope.sizex = 0;
 		$scope.sizey = 0;
 		$scope.baseDimensions = {
-			width: 100,
-			height: 55
+			width: 140,
+			height: 140
 		}
 		$scope.margins = {
-			top: 5,
-			left:5
+			top: 10,
+			left:10
 		}
-		
-
-		//console.log($scope.baseDimensions);
 
 		//bootstrap modal for editing templates
 		$scope.edit = false;
@@ -56,11 +58,13 @@ angular.module('appApp')
 			///controller: 'CmsTemplatesCtrl',
 	        link: function (scope, element, attributes) {
 	            scope.createRow = function(){
-					//console.log(element);
+					console.log(element);
+					element.find(".gridster ul").remove();
+					element.find(".gridster").append("<ul></ul>");
 					element.find('ul').append('<li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li><li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li><li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li><li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li><li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li><li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>');
 					$(".gridster ul").gridster({
-				        widget_margins: [10, 10],
-				        widget_base_dimensions: [140, 140]
+				        widget_margins: [scope.margins.top, scope.margins.left],
+				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
 				    });
 				    var gridster = $(".gridster ul").gridster().data('gridster');
  					var b = gridster.serialize();
