@@ -21,8 +21,8 @@ angular.module('appApp')
 		$scope.sizex = 1;
 		$scope.sizey = 1;
 		$scope.baseDimensions = {
-			width: 140,
-			height: 140
+			width: 83,
+			height: 83
 		}
 		$scope.margins = {
 			top: 10,
@@ -66,7 +66,7 @@ angular.module('appApp')
 						resize:{
 							enabled: true
 						},
-						avoid_overlapped_widgets: true,
+						max_cols: 12,
 						autogrow_cols: true,
 				        widget_margins: [scope.margins.top, scope.margins.left],
 				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
