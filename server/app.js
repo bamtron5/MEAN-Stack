@@ -49,7 +49,7 @@ app.use(multer({ dest: './client/uploads/',
 
 app.post('/api/photo',function(req,res){
 
-	if(done==true){
+	if(done === true){
 		console.log(req.files);
 		res.redirect('/settings');
 	}

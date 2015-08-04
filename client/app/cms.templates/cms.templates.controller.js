@@ -86,10 +86,12 @@ angular.module('appApp')
 					//data for db
 				    var gData = jQuery(".gridster ul").gridster().data('gridster');
  					var gDataSerialized = gridster.serialize();
+ 					console.log(gridster.serialize());
 				}
 
 				scope.createElement = function(){
 					scope.widgetCount++;
+					console.log(gridster.serialize());
 					gridster.add_widget.apply(gridster, ["<li><span class='widget_id'>" + scope.widgetCount + "</span></li>", scope.sizex, scope.sizey])
 				}
 	        },
