@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('appApp')
-  .controller('CmsTemplatesCtrl', function ($scope, $http, socket, $routeParams, $location) {
+  .controller('CmsTemplatesCtrl', function ($scope, $http, socket, $routeParams, $location, $resource) {
 	  	//gridster config
 	  	$scope.maxcol = 12;
 	  	$scope.potentialMaxCol = 12;
@@ -33,8 +33,11 @@ angular.module('appApp')
 		//bootstrap modal for editing templates
 		$scope.edit = false;
 		$scope.openEditor = function(){
+			if($scope.template.templateJson){
+				$scope.initGrid();
+			}
 			$scope.edit = true;
-			$('#edit-grid').modal('show');
+			$('.edit-modal').show();
 		}
 
 
@@ -47,11 +50,27 @@ angular.module('appApp')
 		    });
 	  	} else {
 	  		$http.get('/api/cms.templates/' + $location.hash()).success(function(template) {
+
 		      $scope.template = template;
 		      socket.syncUpdates('template', $scope.template);
 		    }).
 		    error(function(status, data, headers, config){
 		    });
+	  	}
+
+	  	$scope.saveGrid = function(gridJson){
+	  		$http.put('/api/cms.templates/' + $location.hash(), {templateJson:gridJson}, {
+		        templateJson:gridJson
+		    });
+	  	}
+
+	  	$scope.initGrid = function(gridJson){
+	  		if($scope.template){
+	  			for(var x = 0; x < $scope.template.templateJson.length; x++){
+	  				var count = x + 1;
+					gridster.add_widget.apply(gridster, ["<li><span class='widget_id'>" + count + "</span></li>", $scope.template.templateJson[x].size_y, $scope.template.templateJson[x].size_x])
+	  			};
+	  		}
 	  	}
 
 	})
@@ -61,7 +80,7 @@ angular.module('appApp')
 		return {
 			restrict: 'C',
 	        link: function (scope, element, attributes) {
-				var gridster = 
+				window.gridster = 
 					jQuery(".gridster ul").gridster({
 						resize:{
 							enabled: true
@@ -72,21 +91,24 @@ angular.module('appApp')
 				        widget_base_dimensions: [scope.baseDimensions.width, scope.baseDimensions.height]
 				    }).data('gridster');
 
+			    scope.initGrid();
+
 	            scope.updateGrid = function(){
 					if(element.find("li").length === 0){
 						alert("Please add an element first.");
 						return false;
 					}
 
-					gridster.options.widget_base_dimensions = [scope.baseDimensions.width, scope.baseDimensions.height];
-					gridster.options.widget_margins = [scope.margins.top, scope.margins.left];
-					gridster.destroy();
-					gridster.init().data('gridster');
+					// gridster.options.widget_base_dimensions = [scope.baseDimensions.width, scope.baseDimensions.height];
+					// gridster.options.widget_margins = [scope.margins.top, scope.margins.left];
+					// gridster.destroy();
+					//gridster.init().data('gridster');
 					
 					//data for db
 				    var gData = jQuery(".gridster ul").gridster().data('gridster');
  					var gDataSerialized = gridster.serialize();
  					console.log(gridster.serialize());
+ 					scope.saveGrid(gDataSerialized);
 				}
 
 				scope.createElement = function(){
