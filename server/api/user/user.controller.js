@@ -27,10 +27,15 @@ exports.create = function (req, res, next) {
   var newUser = new User(req.body);
   newUser.provider = 'local';
   newUser.role = 'user';
-  newUser.save(function(err, user) {
-    if (err) return validationError(res, err);
-    var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresInMinutes: 60*5 });
-    res.json({ token: token });
+  return newUser.save(function(err, user) {
+    if (user) {
+      //how do you sign a jwt and create a session
+      //explore sessions and certification
+      var token = jwt.sign({_id: user._id }, config.secrets.session, { expiresIn: '2 days'});
+      return res.status(200).json({ token: token });
+    } else {
+      return validationError(res, err)
+    }
   });
 };
 
@@ -91,7 +96,7 @@ exports.changeAvatar = function(req, res, next) {
         if (err) return validationError(res, err);
         res.send(200);
       });
-    
+
   });
 };
 

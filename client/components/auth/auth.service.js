@@ -40,7 +40,7 @@ angular.module('appApp')
         return deferred.promise;
       },
 
-      
+
 
 
 
@@ -57,23 +57,25 @@ angular.module('appApp')
       /**
        * Create a new user
        *
-       * @param  {Object}   user     - user info
+       * @param  {Object}   user     - user info()
        * @param  {Function} callback - optional
        * @return {Promise}
        */
       createUser: function(user, callback) {
         var cb = callback || angular.noop;
-
-        return User.save(user,
-          function(data) {
+        console.log(user);
+        console.log(User());
+        return User.save(user, function(data, err) {
+          if (data) {
             $cookieStore.put('token', data.token);
-            currentUser = User.get();
+            currenUser = User.get();
             return cb(user);
-          },
-          function(err) {
+          } else {
             this.logout();
             return cb(err);
-          }.bind(this)).$promise;
+          }
+        });
+
       },
 
       /**
@@ -100,7 +102,7 @@ angular.module('appApp')
       /**
        * Change Avatar
        *
-       * 
+       *
        */
        changeAvatar: function(newAvatar, callback){
           var cb = callback || angular.noop;

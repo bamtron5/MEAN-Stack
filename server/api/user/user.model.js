@@ -97,12 +97,17 @@ var validatePresenceOf = function(value) {
  */
 UserSchema
   .pre('save', function(next) {
-    if (!this.isNew) return next();
+    console.log(this);
+    if (!this.isNew) {
+      return next();
+    }
 
-    if (!validatePresenceOf(this.hashedPassword))
-      next(new Error('Invalid password'));
-    else
-      next();
+    if (!validatePresenceOf(this.hashedPassword)) {
+      return next(new Error('Invalid password'));
+
+    } else {
+      return next();
+    }
   });
 
 /**
