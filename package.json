@@ -17,7 +17,7 @@
     "lodash": "~2.4.1",
     "method-override": "~1.0.0",
     "mongoose": "~4.6.8",
-    "morgan": "~1.0.0",
+    "morgan": "~1.9.1",
     "multer": "~0.1.6",
     "passport": "~0.3.2",
     "passport-local": "~0.1.6",
