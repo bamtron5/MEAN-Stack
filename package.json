@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
-    "body-parser": "~1.5.0",
+    "body-parser": "~1.19.2",
     "composable-middleware": "^0.3.0",
     "compression": "~1.0.1",
     "connect-mongo": "^0.4.1",
@@ -18,7 +18,7 @@
     "method-override": "~1.0.0",
     "mongoose": "~4.6.8",
     "morgan": "~1.0.0",
-    "multer": "~0.1.6",
+    "multer": "~1.0.0",
     "passport": "~0.3.2",
     "passport-local": "~0.1.6",
     "serve-favicon": "~2.0.1",
